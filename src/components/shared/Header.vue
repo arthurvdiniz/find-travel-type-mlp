@@ -1,6 +1,6 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title>ola</v-toolbar-title>
+    <v-toolbar-title>MLPlanet</v-toolbar-title>
   </v-toolbar>
 </template>
 
