@@ -1,6 +1,5 @@
 export default class Matrix {
-
-  constructor(rows, cols) {
+  constructor (rows, cols) {
     this.rows = rows
     this.cols = cols
     this.matrix = []
@@ -12,7 +11,7 @@ export default class Matrix {
       }
     }
   }
-  
+
   randomize = () => {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
@@ -20,7 +19,7 @@ export default class Matrix {
       }
     }
   }
-  
+
   add = (n) => {
     if (n instanceof Matrix) {
       for (let i = 0; i < this.rows; i++) {
@@ -36,7 +35,7 @@ export default class Matrix {
       }
     }
   }
-  
+
   multiply = (n) => {
     if (n instanceof Matrix) {
       for (let i = 0; i < this.rows; i++) {

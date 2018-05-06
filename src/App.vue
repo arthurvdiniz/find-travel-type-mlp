@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import '@/js/perceptron'
 export default {
   name: 'App'
 }
