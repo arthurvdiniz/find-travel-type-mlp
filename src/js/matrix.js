@@ -60,6 +60,25 @@ export default class Matrix {
       }
     }
   }
+  static subtract (a, b) {
+    // retorna substração de matrix usado no calculo dos erros
+    let result = new Matrix(a.rows, b.cols)
+    for (let i = 0; i < result.rows; i++) {
+      for (let j = 0; j < result.cols; j++) {
+        result.data[i][j] = a[i][j] - b[i][j]
+      }
+    }
+    return result
+  }
+  static transpose(m) {
+    let result = new Matrix(m.cols, m.rows)
+    for (let i = 0; i < m.rows; i++) {
+      for (let j = 0; j < m.cols; j++) {
+        result.data[j][i] = m.data[i][j]
+      }
+    }
+    return result
+  }
   static fromArray(array) {
     let m = new Matrix(arr.length, 1)
     for (let i = 0; i < arr.length; i++) {
@@ -68,12 +87,13 @@ export default class Matrix {
     return m
   }
   toArray() {
-    let array = []
+    let arrayy = []
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        array.push(this.data[i][j])
+        arrayy.push(this.data[i][j])
       }
     }
+    return arrayy
   }
   map(func) {
     for (let i = 0; i < this.rows; i++) {

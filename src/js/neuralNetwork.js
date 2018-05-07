@@ -1,5 +1,13 @@
 import Matrix from "./matrix"
 
+function sigmoid (value) {
+    return 1 / (1 + exp(-value));
+}
+  
+function sigmoid_derivative (value) {
+    return value * (1 - value);
+}
+
 class NeuralNetwork { 
     constructor(input_nodes, hidden_nodes, output_notes) {
         this.input_nodes = input_nodes
@@ -13,13 +21,6 @@ class NeuralNetwork {
 
         this.bias_h = new Matrix(this.hidden_nodes, 1);
         this.bias_o = new Matrix(this.output_notes, 1);
-    }
-    sigmoid = (value) => {
-        return 1 / (1 + exp(-value));
-    }
-      
-    sigmoid_derivative = (value) => {
-        return value * (1 - value);
     }
 
     feedForward(input_array) {
@@ -37,5 +38,16 @@ class NeuralNetwork {
         output.map(sigmoid)
 
         return output.toArray;
+    }
+
+    train(inputs, targets) {
+        let outputs = this.feedForward(inputs)        
+        outputs = Matrix.fromArray(outputs)
+        targets = Matrix.fromArray(targets)
+        // calcula erro erro = targets - outputs
+        let output_errors = Matrix.subtract(targets, outputs)
+        //calcula erro da camada oculta
+        let mTrans = Matrix.transpose(this.weights_ho)
+        let hidden_errors = Matrix.multiply(mTrans, output_errors)
     }
 }
