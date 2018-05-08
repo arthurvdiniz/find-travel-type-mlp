@@ -1,5 +1,5 @@
 <template>
-  <main class="content">
+  <main class="main-container">
     <Header/>
     <Content/>
   </main>
