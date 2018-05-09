@@ -8,6 +8,9 @@ import router from './router'
 import 'vuetify/dist/vuetify.min.css'
 import 'font-awesome/css/font-awesome.css'
 
+import './js/matrix.js'
+// import './js/neuralNetwork.js'
+
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 
