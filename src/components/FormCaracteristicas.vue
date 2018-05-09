@@ -7,10 +7,9 @@
       :label="el.name" 
       :prepend-icon="el.icon"
       color="primary"
-      v-model="el.value"
-      :disabled="disable">
+      v-model="el.value">
       </v-switch>
-      <v-btn :disabled="disable" @click="findOut()">Descobrir</v-btn>
+      <v-btn @click="findOut()">Descobrir</v-btn>
     </v-container>
   </div>
 </template>
@@ -76,7 +75,7 @@ export default {
     findOut () {
       let result = []
       this.disable = true
-      this.inputs.map(el => {
+      this.inputs.forEach(el => {
         if (el.value) {
           result.push(1)
         } else {
