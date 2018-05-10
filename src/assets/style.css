@@ -77,3 +77,23 @@ body {
   height: 100%;
   background: #000022;
 }
+
+.main-content .content .wrapper-result {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content .content .wrapper-result .type-travel {
+
+}
+
+.main-content .content .wrapper-result .description-travel {
+  padding-bottom: 5px;
+  width: 85%;
+  text-align: center;
+  border-bottom: 1px solid #d3d3d3;
+}
