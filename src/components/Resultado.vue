@@ -17,7 +17,9 @@ export default {
     return {
       travel: {
         type: '',
-        description: ''
+        description: '',
+        icon: '',
+        color: ''
       }
     }
   },
