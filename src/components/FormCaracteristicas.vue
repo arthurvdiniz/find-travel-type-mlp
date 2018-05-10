@@ -12,7 +12,7 @@
         :append-icon="el.icon"
         hide-details
         class="switch"
-        color="primary">
+        color="black">
         </v-switch>
       </div>
       <v-btn class="btn-find" @click="findOut()">Descobrir</v-btn>
