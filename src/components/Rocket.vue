@@ -1,7 +1,5 @@
 <template>
   <div class="rocket">
-    <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
     <svg
       xmlns:dc="http://purl.org/dc/elements/1.1/"
       xmlns:cc="http://creativecommons.org/ns#"
@@ -2372,7 +2370,6 @@
 export default {
 }
 </script>
-
 
 <style scoped>
 @import url('../assets/rocket.css');

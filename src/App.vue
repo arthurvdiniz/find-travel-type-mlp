@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import '@/js/perceptron'
 export default {
   name: 'App'
 }
@@ -16,4 +15,3 @@ export default {
 <style>
 @import url('./assets/style.css');
 </style>
-

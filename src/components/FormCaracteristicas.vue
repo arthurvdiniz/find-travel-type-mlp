@@ -4,7 +4,7 @@
     <div class="inputs">
       <div
       class="unique-input"
-      v-for="el in inputs" 
+      v-for="el in inputs"
       :key="el.id">
         <span class="label">{{el.name}}</span>
         <v-switch
@@ -88,7 +88,7 @@ export default {
           result.push(0)
         }
       })
-      this.$emit('findOut', result)
+      this.$emit('clickedBtn', result)
     }
   }
 }

@@ -33,7 +33,7 @@ export default class Matrix {
       }
     }
   }
-  static multiply(matrixWeights, matrixVariables) {
+  static multiply (matrixWeights, matrixVariables) {
   // matrix product
     if (matrixWeights.cols !== matrixVariables.rows) {
       console.log('Número de colunas precisa ser igual número de linhas.')
@@ -56,7 +56,7 @@ export default class Matrix {
     // scalar product
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-          this.data[i][j] *= n
+        this.data[i][j] *= n
       }
     }
   }
@@ -70,7 +70,7 @@ export default class Matrix {
     }
     return result
   }
-  static transpose(m) {
+  static transpose (m) {
     let result = new Matrix(m.cols, m.rows)
     for (let i = 0; i < m.rows; i++) {
       for (let j = 0; j < m.cols; j++) {
@@ -79,27 +79,27 @@ export default class Matrix {
     }
     return result
   }
-  static fromArray(array) {
-    let m = new Matrix(arr.length, 1)
-    for (let i = 0; i < arr.length; i++) {
-      m.data[i][0] = array[i];
-    } 
+  static fromArray (array) {
+    let m = new Matrix(array.length, 1)
+    for (let i = 0; i < array.length; i++) {
+      m.data[i][0] = array[i]
+    }
     return m
   }
-  toArray() {
-    let arrayy = []
+  toArray () {
+    let array = []
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        arrayy.push(this.data[i][j])
+        array.push(this.data[i][j])
       }
     }
-    return arrayy
+    return array
   }
-  map(func) {
+  map (func) {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
         let val = this.data[i][j]
-        this.data[i][j] = func(val);
+        this.data[i][j] = func(val)
       }
     }
   }
