@@ -14,7 +14,7 @@ let vigens = [
     'Expedicao', 
     'Ciencia',
     'Mineracao',
-    'Exploracao'  
+    'Exploracao',  
 ]
 
 
