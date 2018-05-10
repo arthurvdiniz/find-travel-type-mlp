@@ -17,10 +17,10 @@ import Rocket from '@/components/Rocket'
 import NeuralNetwork from '@/js/neuralNetwork'
 
 const N_INPUTS = 8
-const N_OUTPUT = 5
-const N_NEURONIOS = 10
-const LEARNING_RATE = 0.1
-
+const N_OUTPUT = 3
+const N_NEURONIOS = 8
+const LEARNING_RATE = 0.5
+// const target = [1, 1, 1]
 export default {
   components: {
     FormCaracteristicas,
@@ -29,7 +29,10 @@ export default {
   methods: {
     startNN (inputs) {
       let nn = new NeuralNetwork(N_INPUTS, N_NEURONIOS, N_OUTPUT, LEARNING_RATE)
-      console.log(nn)
+      console.log(inputs)
+      // for (let i = 0; i < 50; i++) {
+      //  nn.train(inputs, target)
+      //}
       console.log(nn.feedForward(inputs))
     }
   }

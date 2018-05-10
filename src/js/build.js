@@ -2,7 +2,7 @@ import NeuralNetwork from "./neuralNetwork.js"
 
 let dataset = [
     {
-        inputs: [0,0],
+        inputs: [0,0,0,0,0,0],
         targets: [1]
     },
     {

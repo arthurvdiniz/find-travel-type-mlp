@@ -5,7 +5,8 @@ function sigmoid (value) {
 }
 
 function sigmoidDerivative (value) {
-  return sigmoid(value) * (1 - sigmoid(value))
+  //return sigmoid(value) * (1 - sigmoid(value))
+  return value * (1-value)
 }
 
 export default class NeuralNetwork {
@@ -13,23 +14,27 @@ export default class NeuralNetwork {
     this.inputNodes = inputNodes
     this.hiddenNodes = hiddenNodes
     this.outputNodes = outputNodes
+    this.learningRate = learningRate
 
     this.weights_ih = new Matrix(this.hiddenNodes, this.inputNodes)
     this.weights_ho = new Matrix(this.outputNodes, this.hiddenNodes)
     this.weights_ih.randomize()
     this.weights_ho.randomize()
-
+  
     this.bias_h = new Matrix(this.hiddenNodes, 1)
     this.bias_o = new Matrix(this.outputNodes, 1)
-    this.bias_h.add(1)
-    this.bias_o.add(1)
-
-    this.learningRate = learningRate
+   // bias = -1
+   // this.bias_h.multiply(0)
+   // this.bias_o.multiply(0)
+   // this.bias_h.subtract(1)
+   // this.bias_o.subtract(1)
+   this.bias_h.randomize()
+   this.bias_o.randomize()
   }
 
   feedForward (inputArray) {
+    console.log(this.weights_ho.data)
     let input = Matrix.fromArray(inputArray)
-
     let hidden = Matrix.multiply(this.weights_ih, input)
     hidden.add(this.bias_h)
     // activation function para camada oculta
@@ -45,23 +50,26 @@ export default class NeuralNetwork {
 
   train (inputs, targets) {
     let outputs = this.feedForward(inputs)
-    // outputs = Matrix.fromArray(outputs)
+    outputs = Matrix.fromArray(outputs)
+    let input = Matrix.fromArray(inputs)
     targets = Matrix.fromArray(targets)
+    let hidden = Matrix.multiply(this.weights_ih, input)
 
     // calcula erro da saida: erro = targets - outputs
     let outputErros = Matrix.subtract(targets, outputs)
 
     // gradiente da camada de saida
-    let gradients = outputs.map(sigmoidDerivative)
+    let gradients = Matrix.map(outputs, sigmoidDerivative)
     gradients.multiply(outputErros)
     gradients.multiply(this.learningRate)
-    // deltas da oculta -> saida
-    let input = Matrix.fromArray(inputs)
-    let hidden = Matrix.multiply(this.weights_ih, input)
+
+    // deltas da oculta -> saida  
     let hiddenTrans = Matrix.transpose(hidden)
     let wightsHODeltas = Matrix.multiply(gradients, hiddenTrans)
+
     // atualiza os pesos da oculta -> saida
     this.weights_ho.add(wightsHODeltas)
+
     // atualiza o bias nem sabia disso?????? (de acordo com o gradiente)
     this.bias_o.add(gradients)
 
@@ -77,6 +85,7 @@ export default class NeuralNetwork {
     let weightIHDeltas = Matrix.multiply(hiddenGradients, inputTrans)
     // atualiza os pesos da entrada -> oculta
     this.weights_ih.add(weightIHDeltas)
+
     // atualiza o bias
     this.bias_h.add(hiddenGradients)
   }

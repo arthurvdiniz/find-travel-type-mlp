@@ -11,10 +11,10 @@ export default class Matrix {
       }
     }
   }
-  randomize = () => {
+  randomize() {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        this.data[i][j] = Math.random()
+        this.data[i][j] = Math.random() 
       }
     }
   }
@@ -33,19 +33,26 @@ export default class Matrix {
       }
     }
   }
-  static multiply (matrixWeights, matrixVariables) {
+  subtract = (n) => {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        this.data[i][j] -= n
+      }
+    }
+  }
+  static multiply (m1, m2) {
   // matrix product
-    if (matrixWeights.cols !== matrixVariables.rows) {
-      console.log('Número de colunas precisa ser igual número de linhas.')
+    if (m1.cols !== m2.rows) {
+      console.log('Número de colunas da matrix de pesos precisa ser igual número de linhas da matrix de variáveis.')
       return undefined
     }
-    let result = new Matrix(matrixWeights.rows, matrixVariables.cols)
+    let result = new Matrix(m1.rows, m2.cols)
     for (let i = 0; i < result.rows; i++) {
       for (let j = 0; j < result.cols; j++) {
         // dot product;
         let sum = 0
-        for (let k = 0; k < matrixWeights; k++) {
-          sum += matrixWeights.data[j][k] * matrixVariables.data[k][j]
+        for (let k = 0; k < m1.cols; k++) {
+          sum += m1.data[i][k] * m2.data[k][j]
         }
         result.data[i][j] = sum
       }
@@ -65,7 +72,7 @@ export default class Matrix {
     let result = new Matrix(a.rows, b.cols)
     for (let i = 0; i < result.rows; i++) {
       for (let j = 0; j < result.cols; j++) {
-        result.data[i][j] = a[i][j] - b[i][j]
+        result.data[i][j] = a.data[i][j] - b.data[i][j]
       }
     }
     return result
@@ -87,13 +94,13 @@ export default class Matrix {
     return m
   }
   toArray () {
-    let array = []
+    let arr = []
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        array.push(this.data[i][j])
+        arr.push(this.data[i][j])
       }
     }
-    return array
+    return arr
   }
   map (func) {
     for (let i = 0; i < this.rows; i++) {
@@ -102,6 +109,16 @@ export default class Matrix {
         this.data[i][j] = func(val)
       }
     }
+  }
+  static map (matrix, func) {
+    let result = new Matrix(matrix.rows, matrix.cols)
+    for (let i = 0; i < matrix.rows; i++) {
+      for (let j = 0; j < matrix.cols; j++) {
+        let val = matrix.data[i][j]
+        result.data[i][j] = func(val)
+      }
+    }
+    return result
   }
   print = () => {
     console.log(this.data)
