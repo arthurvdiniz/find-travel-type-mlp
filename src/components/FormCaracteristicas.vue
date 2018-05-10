@@ -1,16 +1,22 @@
 <template>
   <div class="wrapper-form">
-    <v-container fluid class="carac-inputs">
-      <v-switch
+    <h2 class="title">Caractéristicas do Planeta</h2>
+    <div class="inputs">
+      <div
+      class="unique-input"
       v-for="el in inputs" 
-      :key="el.id"
-      :label="el.name" 
-      :prepend-icon="el.icon"
-      color="primary"
-      v-model="el.value">
-      </v-switch>
-      <v-btn @click="findOut()">Descobrir</v-btn>
-    </v-container>
+      :key="el.id">
+        <span class="label">{{el.name}}</span>
+        <v-switch
+        v-model="el.value"
+        :append-icon="el.icon"
+        hide-details
+        class="switch"
+        color="primary">
+        </v-switch>
+      </div>
+      <v-btn class="btn-find" @click="findOut()">Descobrir</v-btn>
+    </div>
   </div>
 </template>
 
@@ -21,7 +27,7 @@ export default {
       inputs: [
         {
           id: 0,
-          name: 'Água',
+          name: 'Este planeta possui Água?',
           icon: 'mdi-water',
           value: false
         },
