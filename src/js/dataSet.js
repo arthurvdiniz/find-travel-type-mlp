@@ -10,11 +10,11 @@ let entrada = [
 ]
 
 let vigens = [
-    Colonizacao, 
-    Expedicao, 
-    Ciencia,
-    Mineracao,
-    Exploracao  
+    'Colonizacao', 
+    'Expedicao', 
+    'Ciencia',
+    'Mineracao',
+    'Exploracao'  
 ]
 
 
