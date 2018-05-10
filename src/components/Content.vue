@@ -5,9 +5,11 @@
       <p class="text">teste</p>
     </div>
     <div class="content">
-      <form-caracteristicas @clickedBtn="startNN($event)" v-if="!isLoading && !ended"/>
-      <rocket v-if="isLoading"/>
-      <resultado :result="result" :ended="ended" @goBack="ended = false; result = []" v-if="ended"/>
+      <transition name="component-fade" mode="out-in">
+        <form-caracteristicas @clickedBtn="startNN($event)" v-if="!isLoading && !ended"/>
+        <rocket v-if="isLoading"/>
+        <resultado :result="result" :ended="ended" @goBack="ended = false; result = []" v-if="ended"/>
+      </transition>
     </div>
   </div>
 </template>

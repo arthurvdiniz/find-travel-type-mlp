@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper-result">
+    <v-icon class="icon-travel" size="75" color="black">{{travel.icon}}</v-icon>
     <h1 class="type-travel">{{travel.type}}</h1>
     <h3 class="description-travel">{{travel.description}}</h3>
     <p class="output">{{result}}</p>
@@ -41,23 +42,28 @@ export default {
       return [
         {
           type: 'Colonização',
-          description: 'Reune as principais características citadas'
+          description: 'Reune as principais características citadas',
+          icon: 'mdi-home-variant'
         },
         {
           type: 'Expedição',
-          description: 'Descoberta de outros tipos de seres vivos'
+          description: 'Descoberta de outros tipos de seres vivos',
+          icon: 'mdi-human-greeting'
         },
         {
           type: 'Exploração',
-          description: 'Resultados inconclusivos'
+          description: 'Resultados inconclusivos',
+          icon: 'mdi-magnify'
         },
         {
           type: 'Mineração',
-          description: 'Obtenção de metais preciosos'
+          description: 'Obtenção de metais preciosos',
+          icon: 'mdi-barrel'
         },
         {
           type: 'Ciência',
-          description: 'Descoberta de novos materiais'
+          description: 'Descoberta de novos materiais',
+          icon: 'mdi-flask'
         },
       ]
     }

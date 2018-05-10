@@ -10,9 +10,6 @@ body {
 .main-content .text-info {
   background: black;
   width: 50%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .main-content .text-info .title {
@@ -87,13 +84,37 @@ body {
   align-items: center;
 }
 
-.main-content .content .wrapper-result .type-travel {
+.main-content .content .wrapper-result .icon-travel {
+  margin-bottom: 50px;
+}
 
+.main-content .content .wrapper-result .type-travel {
+  font-size: 44px;
 }
 
 .main-content .content .wrapper-result .description-travel {
+  font-size: 22px;
   padding-bottom: 5px;
   width: 85%;
   text-align: center;
   border-bottom: 1px solid #d3d3d3;
+}
+
+.main-content .content .wrapper-result .output {
+  margin-top: 20px;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 100;
+}
+
+.main-content .content .wrapper-result .btn-restart {
+  margin-top: 35px;
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .6s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
