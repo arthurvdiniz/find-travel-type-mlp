@@ -76,13 +76,16 @@ export default class NeuralNetwork {
     // calcula erro da camada oculta
     let hoTrans = Matrix.transpose(this.weights_ho)
     let hiddenErros = Matrix.multiply(hoTrans, outputErros)
+    
     // gradiente da camada oculta
     let hiddenGradients = Matrix.map(hidden, sigmoidDerivative)
     hiddenGradients.multiply(hiddenErros)
     hiddenGradients.multiply(this.learningRate)
+
     // calcula deltas do input -> oculta
     let inputTrans = Matrix.transpose(input)
     let weightIHDeltas = Matrix.multiply(hiddenGradients, inputTrans)
+
     // atualiza os pesos da entrada -> oculta
     this.weights_ih.add(weightIHDeltas)
 

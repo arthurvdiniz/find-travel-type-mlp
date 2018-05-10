@@ -15,7 +15,9 @@
         color="black">
         </v-switch>
       </div>
-      <v-btn class="btn-find" @click="findOut()">Descobrir</v-btn>
+      <v-btn fab dark color="black" class="btn-find" @click="findOut()">
+        <v-icon>mdi-rocket</v-icon>
+      </v-btn>
     </div>
   </div>
 </template>
@@ -27,60 +29,58 @@ export default {
       inputs: [
         {
           id: 0,
-          name: 'Este planeta possui Água?',
+          name: 'Presença de água?',
           icon: 'mdi-water',
           value: false
         },
         {
           id: 1,
-          name: 'Oxigênio',
+          name: 'Presença parcial dos elementos para manutenção da vida?',
           icon: 'mdi-gas-cylinder',
           value: false
         },
         {
           id: 2,
-          name: 'Minérios',
-          icon: 'mdi-history',
+          name: 'Não abundãncia de matérias pesados?',
+          icon: 'mdi-shovel',
           value: false
         },
         {
           id: 3,
-          name: 'Terra cultivável',
-          icon: 'mdi-tree',
+          name: 'Temperatura suportável?',
+          icon: 'mdi-thermometer',
           value: false
         },
         {
           id: 4,
-          name: 'Etc1',
-          icon: 'mdi-history',
+          name: 'Gravidade suportável?',
+          icon: 'mdi-buffer',
           value: false
         },
         {
           id: 5,
-          name: 'Etc2',
-          icon: 'mdi-history',
+          name: 'Presença de marcadores biológicos?',
+          icon: 'mdi-biohazard',
           value: false
         },
         {
           id: 6,
-          name: 'Etc3',
-          icon: 'mdi-history',
+          name: 'Alta concentração rochosa?',
+          icon: 'mdi-image-filter-hdr',
           value: false
         },
         {
           id: 7,
-          name: 'Etc4',
-          icon: 'mdi-history',
+          name: 'Presença de espectros ainda não conhecidos?',
+          icon: 'mdi-waves',
           value: false
         }
-      ],
-      disable: false
+      ]
     }
   },
   methods: {
     findOut () {
       let result = []
-      this.disable = true
       this.inputs.forEach(el => {
         if (el.value) {
           result.push(1)
