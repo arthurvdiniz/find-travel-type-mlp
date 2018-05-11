@@ -26,8 +26,25 @@ import { dataSet } from '@/js/dataSet'
 const N_INPUTS = 8
 const N_OUTPUT = 5
 const N_NEURONIOS = 8
-const LEARNING_RATE = 0.5
-
+const LEARNING_RATE = 0.2
+let dataset = [
+    {
+        inputs: [0, 0],
+        targets: [0]
+    },
+    {
+        inputs: [0, 1],
+        targets: [1]
+    },
+    {
+        inputs: [1, 0],
+        targets: [1]
+    },
+    {
+        inputs: [1, 1],
+        targets: [0]
+    },
+];
 export default {
   components: {
     FormCaracteristicas,
@@ -81,13 +98,15 @@ export default {
       //   this.ended = true
       // }
     
-      // let dataShuffle = _.shuffle(dataSet)
-      //for (let j = 0; j < 10000; j++) {
-      //  let element = Math.floor(Math.random() * dataSet.length)
+      let dataShuffle = _.shuffle(dataSet)
+      //debugger
+      for (let j = 0; j < 9; j++) {
+        //let element = Math.floor(Math.random() * dataSet.length)
+        //nn.train(dataSet[element].input, dataSet[element].target)
+        nn.train(dataShuffle[j].input, dataShuffle[j].target)
+      }
       console.log(dataSet[0].input)
       console.log(dataSet[0].target)
-      nn.train(dataSet.input, dataSet.target)
-      //}
       console.log(nn.feedForward(inputs))
       setTimeout(() => {
         this.isLoading = false

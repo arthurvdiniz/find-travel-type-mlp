@@ -89,6 +89,15 @@ export default class Matrix {
       }
     }
   }
+  static multiplyElemWise(a, b){
+    let result = new Matrix(a.rows, b.cols)
+    for (let i = 0; i < result.rows; i++) {
+      for (let j = 0; j < result.cols; j++) {
+        result.data[i][j] = a.data[i][j] * b.data[i][j] 
+      }
+    }
+    return result
+  }
   static subtract (a, b) {
     // retorna substração de matrix usado no calculo dos erros
     let result = new Matrix(a.rows, b.cols)
