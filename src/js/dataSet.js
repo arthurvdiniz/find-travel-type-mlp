@@ -529,7 +529,7 @@ export let dataSet = [
                 target: [0,1,0,0,0],
             },
   {
-                input: [0,1111111],
+                input: [0, 1, 1, 1, 1, 1, 1, 1],
                 target: [0,1,0,0,0],
             },
   {

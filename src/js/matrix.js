@@ -60,10 +60,26 @@ export default class Matrix {
   }
   multiply = (n) => {
     if (n instanceof Matrix) {
-      // multiplicar linha por linha matrizes de por exemplo 5x1 x 5x1
-      for (let i = 0; i < this.rows; i++) {
-        this.data[i][0] *= n.data[i][0]
+      // matrix product
+      if (this.cols !== n.rows) {
+        console.log("Numero de colunas de A tem que ser igual a numero de linhas de B")
+        return undefined
       }
+      let a = this
+      let b = n
+      let result = new Matrix(a.rows, b.cols)
+
+      for (let i = 0; i < result.rows; i++) {
+        for (let j = 0; j < result.cols; j++) {
+          //dot product
+          let sum = 0
+          for (let k = 0; k < a.cols; k++) {
+            sum += a.data[i][k] * b.data[k][j]
+          }
+          result.data[i][j] = sum
+        }
+      }
+      return result
     } else {
       // scalar product
       for (let i = 0; i < this.rows; i++) {
@@ -92,10 +108,10 @@ export default class Matrix {
     }
     return result
   }
-  static fromArray (array) {
-    let m = new Matrix(array.length, 1)
-    for (let i = 0; i < array.length; i++) {
-      m.data[i][0] = array[i]
+  static fromArray (arr) {
+    let m = new Matrix(arr.length, 1)
+    for (let i = 0; i < arr.length; i++) {
+      m.data[i][0] = arr[i]
     }
     return m
   }

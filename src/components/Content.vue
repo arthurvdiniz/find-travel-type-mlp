@@ -27,7 +27,6 @@ const N_INPUTS = 8
 const N_OUTPUT = 5
 const N_NEURONIOS = 8
 const LEARNING_RATE = 0.5
-// const target = [1, 1, 1]
 
 export default {
   components: {
@@ -81,19 +80,19 @@ export default {
       //   this.isLoading = false
       //   this.ended = true
       // }
-      for (let i = 0; i < 1; i++) {
-        let dataShuffle = _.shuffle(dataSet)
-        for (let j = 0; j < dataSet.lengh; j++) {
-          nn.train(dataShuffle[j].input, dataShuffle[j].target)
-        }
-      }
+    
+      // let dataShuffle = _.shuffle(dataSet)
+      //for (let j = 0; j < 10000; j++) {
+      //  let element = Math.floor(Math.random() * dataSet.length)
+      console.log(dataSet[0].input)
+      console.log(dataSet[0].target)
+      nn.train(dataSet.input, dataSet.target)
+      //}
+      console.log(nn.feedForward(inputs))
       setTimeout(() => {
         this.isLoading = false
         this.ended = true
       }, 5000)
-      // this.result = nn.feedForward(inputs)
-      // console.log(this.result)
-      // console.log(nn)
     }
   }
 }
