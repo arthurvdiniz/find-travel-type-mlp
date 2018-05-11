@@ -37,6 +37,7 @@ export default class NeuralNetwork {
   }
 
   feedForward (inputArray) {
+    debugger
     let input = Matrix.fromArray(inputArray)
     let hidden = Matrix.multiply(this.weights_ih, input)
     hidden.add(this.bias_h)
