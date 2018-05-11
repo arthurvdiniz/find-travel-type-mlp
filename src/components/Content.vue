@@ -46,7 +46,7 @@ export default {
       this.ended = false
       this.isLoading = true
       let nn = new NeuralNetwork(N_INPUTS, N_NEURONIOS, N_OUTPUT, LEARNING_RATE)
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 1; i++) {
         for (let j = 0; j < dataSet.length; j++) {
           nn.train(dataSet[j].input, dataSet[j].target)
         }

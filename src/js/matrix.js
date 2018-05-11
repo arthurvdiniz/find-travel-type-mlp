@@ -59,10 +59,17 @@ export default class Matrix {
     return result
   }
   multiply = (n) => {
-    // scalar product
-    for (let i = 0; i < this.rows; i++) {
-      for (let j = 0; j < this.cols; j++) {
-        this.data[i][j] *= n
+    if (n instanceof Matrix) {
+      // multiplicar linha por linha matrizes de por exemplo 5x1 x 5x1
+      for (let i = 0; i < this.rows; i++) {
+        this.data[i][0] *= n.data[i][0]
+      }
+    } else {
+      // scalar product
+      for (let i = 0; i < this.rows; i++) {
+        for (let j = 0; j < this.cols; j++) {
+          this.data[i][j] *= n
+        }
       }
     }
   }

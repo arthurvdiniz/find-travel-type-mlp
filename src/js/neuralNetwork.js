@@ -28,7 +28,7 @@ export default class NeuralNetwork {
   }
 
   feedForward (inputArray) {
-    console.log(this.weights_ho.data)
+    // console.log(this.weights_ho.data)
     let input = Matrix.fromArray(inputArray)
     let hidden = Matrix.multiply(this.weights_ih, input)
     hidden.add(this.bias_h)
@@ -54,8 +54,8 @@ export default class NeuralNetwork {
     let outputErros = Matrix.subtract(targets, outputs)
 
     // gradiente da camada de saida
-    let gradientsTemp = Matrix.map(outputs, sigmoidDerivative)
-    let gradients = Matrix.multiply(gradientsTemp, outputErros)
+    let gradients = Matrix.map(outputs, sigmoidDerivative)
+    gradients.multiply(outputErros)
     gradients.multiply(this.learningRate)
 
     // deltas da oculta -> saida
@@ -87,7 +87,7 @@ export default class NeuralNetwork {
     // atualiza o bias
     this.bias_h.add(hiddenGradients)
 
-    console.log('out: ', this.weights_ho)
-    console.log('in: ', this.weights_ih)
+    console.log('out: ', this.weights_ho.data)
+    console.log('in: ', this.weights_ih.data)
   }
 }
