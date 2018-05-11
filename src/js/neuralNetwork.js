@@ -1,12 +1,10 @@
 import Matrix from './matrix'
-import mathjs from 'mathjs'
 
 function sigmoid (value) {
   return 1 / (1 + Math.exp(-value))
 }
 
 function sigmoidDerivative (value) {
-  // return sigmoid(value) * (1 - sigmoid(value))
   return sigmoid(value) * (1 - sigmoid(value))
 }
 
@@ -24,14 +22,12 @@ export default class NeuralNetwork {
 
     this.bias_h = new Matrix(this.hiddenNodes, 1)
     this.bias_o = new Matrix(this.outputNodes, 1)
-    //bias = -1 
-    this.bias_h.multiply(0)
-    this.bias_o.multiply(0)
-    this.bias_h.subtract(1)
-    this.bias_o.subtract(1)
+    this.bias_h.randomize()
+    this.bias_o.randomize()
   }
 
   feedForward (inputArray) {
+    debugger
     let input = Matrix.fromArray(inputArray)
     let hidden = Matrix.multiply(this.weights_ih, input)
     hidden.add(this.bias_h)
@@ -58,21 +54,20 @@ export default class NeuralNetwork {
 
     // gradiente da camada de saida
     let gradients = Matrix.map(outputs, sigmoidDerivative)
-    //gradients = Matrix.fromArray(gradients.toArray() * outputErros.toArray())
+    // gradients = Matrix.fromArray(gradients.toArray() * outputErros.toArray())
     gradients = Matrix.multiplyElemWise(gradients, outputErros)
-    //gradients = mathjs.dotMultiply(gradients, outputErros)
-    //gradients.multiply(outputErros)
+    // gradients = mathjs.dotMultiply(gradients, outputErros)
+    // gradients.multiply(outputErros)
     gradients.multiply(this.learningRate)
     // deltas da oculta -> saida
     let hiddenTrans = Matrix.transpose(hidden)
     let wightsHODeltas = Matrix.multiply(gradients, hiddenTrans)
-
-
+    // ----------------------------------------------------------------------
     // atualiza os pesos da oculta -> saida
     this.weights_ho.add(wightsHODeltas)
 
     // atualiza o bias nem sabia disso?????? (de acordo com o gradiente)
-    //this.bias_o.add(gradients)
+    this.bias_o.add(gradients)
 
     // calcula erro da camada oculta
     let hoTrans = Matrix.transpose(this.weights_ho)
@@ -81,8 +76,8 @@ export default class NeuralNetwork {
     // gradiente da camada oculta
     let hiddenGradients = Matrix.map(hidden, sigmoidDerivative)
     hiddenGradients = Matrix.multiplyElemWise(hiddenGradients, hiddenErros)
-    //hiddenGradients.multiply(hiddenErros)
-    //hiddenGradients = Matrix.fromArray(hiddenGradients.toArray() * hiddenErros.toArray())
+    // hiddenGradients.multiply(hiddenErros)
+    // hiddenGradients = Matrix.fromArray(hiddenGradients.toArray() * hiddenErros.toArray())
     hiddenGradients.multiply(this.learningRate)
 
     // calcula deltas do input -> oculta
@@ -93,9 +88,9 @@ export default class NeuralNetwork {
     this.weights_ih.add(weightIHDeltas)
 
     // atualiza o bias
-    //this.bias_h.add(hiddenGradients)
+    this.bias_h.add(hiddenGradients)
 
-    console.log('out: ', this.weights_ho.data)
-    console.log('in: ', this.weights_ih.data)
+    // console.log('out: ', this.weights_ho.data)
+    // console.log('in: ', this.weights_ih.data)
   }
 }

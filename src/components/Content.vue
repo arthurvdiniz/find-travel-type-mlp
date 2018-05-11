@@ -60,54 +60,26 @@ export default {
   },
   methods: {
     startNN (inputs) {
-      // console.log(inputs)
       this.ended = false
       this.isLoading = true
       let nn = new NeuralNetwork(N_INPUTS, N_NEURONIOS, N_OUTPUT, LEARNING_RATE)
-      // let contData = 0
-      // let contTrain = 0
-      // let endData = false
-      // let endTrain = false
-      // const dataLoop = () => {
-      //   setTimeout(() => {
-      //     nn.train(dataSet[contData].input, dataSet[contData].target)
-      //     contData++
-      //     if (contData < dataSet.length) {
-      //       dataLoop()
-      //     } else {
-      //       endData = true
-      //     }
-      //   }, 500)
-      // }
-      // const trainLoop = () => {
-      //   setTimeout(() => {
-      //     endTrain = false
-      //     endData = false
-      //     dataLoop()
-      //     contTrain++
-      //     if (contTrain < 2) {
-      //       trainLoop()
-      //     } else {
-      //       endTrain = true
-      //     }
-      //   }, 50)
-      // }
-      // trainLoop()
-      // if (endData && endTrain) {
-      //   this.isLoading = false
-      //   this.ended = true
-      // }
-    
-      let dataShuffle = _.shuffle(dataSet)
-      //debugger
-      for (let j = 0; j < 100; j++) {
-        //let element = Math.floor(Math.random() * dataSet.length)
-        //nn.train(dataSet[element].input, dataSet[element].target)
-        nn.train(dataShuffle[j].input, dataShuffle[j].target)
+      // Criando o dataset de treinamento e o de teste
+      let datasetLengh = dataSet.length
+      let dataTest = [...dataSet]
+      let dataTrain = []
+      for (let i = 0; i < datasetLengh * 0.75; i++) {
+        let rand = Math.ceil(Math.random() * (dataTest.length * 0.75))
+        dataTrain.push(dataTest[rand]) // esse será o de treinamento
+        dataTest.splice(rand, 1) // quando acabar o for esse dataSet será o de teste
       }
-      console.log(dataSet[0].input)
-      console.log(dataSet[0].target)
-      console.log(nn.feedForward(inputs))
+      for (let j = 0; j < 100; j++) {
+        let dataShuffle = _.shuffle(dataTrain)
+        for (let i = 0; i < dataShuffle.length; i++) {
+          nn.train(dataShuffle[i].input, dataShuffle[i].target)
+        }
+      }
+      console.log('Resultado: ', nn.feedForward(inputs))
+      console.log(nn)
       setTimeout(() => {
         this.isLoading = false
         this.ended = true
