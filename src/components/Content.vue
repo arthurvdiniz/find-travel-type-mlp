@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 import FormCaracteristicas from '@/components/FormCaracteristicas'
 import Rocket from '@/components/Rocket'
 import Resultado from '@/components/Resultado'
@@ -46,18 +48,52 @@ export default {
       this.ended = false
       this.isLoading = true
       let nn = new NeuralNetwork(N_INPUTS, N_NEURONIOS, N_OUTPUT, LEARNING_RATE)
+      // let contData = 0
+      // let contTrain = 0
+      // let endData = false
+      // let endTrain = false
+      // const dataLoop = () => {
+      //   setTimeout(() => {
+      //     nn.train(dataSet[contData].input, dataSet[contData].target)
+      //     contData++
+      //     if (contData < dataSet.length) {
+      //       dataLoop()
+      //     } else {
+      //       endData = true
+      //     }
+      //   }, 500)
+      // }
+      // const trainLoop = () => {
+      //   setTimeout(() => {
+      //     endTrain = false
+      //     endData = false
+      //     dataLoop()
+      //     contTrain++
+      //     if (contTrain < 2) {
+      //       trainLoop()
+      //     } else {
+      //       endTrain = true
+      //     }
+      //   }, 50)
+      // }
+      // trainLoop()
+      // if (endData && endTrain) {
+      //   this.isLoading = false
+      //   this.ended = true
+      // }
       for (let i = 0; i < 1; i++) {
-        for (let j = 0; j < dataSet.length; j++) {
-          nn.train(dataSet[j].input, dataSet[j].target)
+        let dataShuffle = _.shuffle(dataSet)
+        for (let j = 0; j < dataSet.lengh; j++) {
+          nn.train(dataShuffle[j].input, dataShuffle[j].target)
         }
       }
-      // this.result = nn.feedForward(inputs)
-      // console.log(this.result)
-      // console.log(nn)
       setTimeout(() => {
         this.isLoading = false
         this.ended = true
       }, 5000)
+      // this.result = nn.feedForward(inputs)
+      // console.log(this.result)
+      // console.log(nn)
     }
   }
 }
