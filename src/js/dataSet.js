@@ -18,7 +18,7 @@ let vigens = [
 ]
 
 
-let dataSet = [
+export let dataSet = [
 
   {
                 input: [0,0,0,0,0,0,0,0],

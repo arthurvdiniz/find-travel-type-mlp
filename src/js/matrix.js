@@ -11,10 +11,10 @@ export default class Matrix {
       }
     }
   }
-  randomize() {
+  randomize () {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        this.data[i][j] = Math.random() 
+        this.data[i][j] = Math.random()
       }
     }
   }
@@ -41,9 +41,8 @@ export default class Matrix {
     }
   }
   static multiply (m1, m2) {
-  // matrix product
+    // matrix product
     if (m1.cols !== m2.rows) {
-      console.log('Número de colunas da matrix de pesos precisa ser igual número de linhas da matrix de variáveis.')
       return undefined
     }
     let result = new Matrix(m1.rows, m2.cols)
