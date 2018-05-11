@@ -7,7 +7,7 @@ function sigmoid (value) {
 
 function sigmoidDerivative (value) {
   // return sigmoid(value) * (1 - sigmoid(value))
-  return value * (1 - value)
+  return sigmoid(value) * (1 - sigmoid(value))
 }
 
 export default class NeuralNetwork {

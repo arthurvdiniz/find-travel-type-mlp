@@ -26,7 +26,7 @@ import { dataSet } from '@/js/dataSet'
 const N_INPUTS = 8
 const N_OUTPUT = 5
 const N_NEURONIOS = 8
-const LEARNING_RATE = 0.2
+const LEARNING_RATE = 0.3
 let dataset = [
     {
         inputs: [0, 0],
@@ -100,7 +100,7 @@ export default {
     
       let dataShuffle = _.shuffle(dataSet)
       //debugger
-      for (let j = 0; j < 9; j++) {
+      for (let j = 0; j < 100; j++) {
         //let element = Math.floor(Math.random() * dataSet.length)
         //nn.train(dataSet[element].input, dataSet[element].target)
         nn.train(dataShuffle[j].input, dataShuffle[j].target)
