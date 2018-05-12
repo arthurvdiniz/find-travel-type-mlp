@@ -55,10 +55,10 @@ export default {
           color: 'green darken-3'
         },
         {
-          type: 'Exploração',
-          description: 'Resultados inconclusivos',
-          icon: 'mdi-magnify',
-          color: 'red darken-3'
+          type: 'Ciência',
+          description: 'Descoberta de novos materiais',
+          icon: 'mdi-flask',
+          color: 'purple darken-3'
         },
         {
           type: 'Mineração',
@@ -67,11 +67,11 @@ export default {
           color: 'amber darken-3'
         },
         {
-          type: 'Ciência',
-          description: 'Descoberta de novos materiais',
-          icon: 'mdi-flask',
-          color: 'purple darken-3'
-        },
+          type: 'Exploração',
+          description: 'Resultados inconclusivos',
+          icon: 'mdi-magnify',
+          color: 'red darken-3'
+        }
       ]
     }
   }
