@@ -25,7 +25,8 @@
 }
 
 .main-content .text-info .text {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   text-align: justify;
   padding: 5%;
   color: white;
@@ -37,7 +38,8 @@
 }
 
 .main-content .text-info .wrapper-sub-text-column .sub-text {
-  width: 50%;
+
+  margin: 0 auto;
   text-align: justify;
   padding: 5%;
   color: white;

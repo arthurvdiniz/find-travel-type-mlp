@@ -14,13 +14,16 @@
         </p>
       </div>
       <div>
-        <h3 class="sub-title">Características do Sistema e Tipo de Viagem</h3>
+        <h3 class="sub-title">Características do Sistema e Tipos de Viagem</h3>
         <div class="wrapper-sub-text-column">
           <div class="sub-text">
             <ul>
               <li>Neurônios da camada oculta: 8</li>
               <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
               <li>Método utilizado: Multilayer Perceptron</li>
+              <li>Número de neurônios: 8</li>
+              <li>Metodo de treinamento: Interativo</li>
+              <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
             </ul>
           </div>
           <div class="sub-text viagem">
