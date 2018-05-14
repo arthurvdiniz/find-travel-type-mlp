@@ -11,7 +11,7 @@
 .main-content .text-info .title {
   width: 100%;
   text-align: center;
-  padding-top: 10%;
+  padding-top: 5%;
   color: white;
   font-size: 24px !important;
 }
@@ -19,7 +19,7 @@
 .main-content .text-info .text {
   width: 100%;
   text-align: justify;
-  padding: 10%;
+  padding: 5%;
   color: white;
   font-size: 16px;
 }
@@ -113,4 +113,18 @@
 .component-fade-enter, .component-fade-leave-to
 /* .component-fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+hr{
+  width: 80%;
+  margin: 20px auto;
+}
+
+.fate{
+  width: 100%;
+  text-align: justify;
+  margin-bottom: 10%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }

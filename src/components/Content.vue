@@ -2,7 +2,39 @@
   <div class="main-content">
     <div class="text-info">
       <h2 class="title">Encontre sua viagem interplanetária</h2>
-      <p class="text">teste</p>
+      <hr />
+      <h3 class="title"> Espectroscopia</h3>
+      <p class="text">
+        São técnicas de levantamento de dados através da transmissão, absorção ou 
+        reflexão da energia radiante de uma amostra. Quando aquecidos ou eletricamente 
+        carregados, certos elementos químicos emitem ou absorvem (aparecem como marcas 
+        escuras que dividem o espectro) radiação em cores ou comprimentos de onda muito 
+        específicos, denominados linhas de emissão e absorção.
+      </p>
+      <hr />
+      <h3 class="title"> Tipos de Viagens:</h3>
+      <ul class="text">
+        <li>Colonização – reuni as principais características citadas </li>
+        <li>Expedição – descoberta de outros tipos de seres vivos</li>
+        <li>Ciência – descoberta de novos materiais.</li>
+        <li>Mineração – obtenção de metais preciosos</li>
+        <li>Exploração – resultados inconclusivos</li>
+      </ul>
+      <hr />
+      <h3 class="title"> Prioridades e características do sistema:</h3>
+      <p class="text">
+        <span class="fate">- Prioridades: <br /></span>
+        Se a IA encontrar mais de uma viagem ideal para uma determinada entrada, 
+        a seguinte ordem de prioridade deve ser seguida:<br />
+        * Colonização > Expedição > Ciência > Mineração > Exploração <br />
+        <span class="fate">- Características:</span>
+        <ul>
+          <li>Número de neurônios: 8</li>
+          <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
+          <li>Método utilizado: </li>
+        </ul>
+
+      </p>
     </div>
     <div class="content">
       <transition name="component-fade" mode="out-in">
