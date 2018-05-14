@@ -122,9 +122,7 @@ export let datasetTest = [
 
 ]
 
-
-
-export let datSet =  [
+export let dataSet =  [
   {                 
                 input: [0,0,0,0,0,0,0,0],
                 target: [0,0,0,0,1],
