@@ -21,7 +21,7 @@
               <li>Neurônios da camada oculta: 8</li>
               <li>Método utilizado: Multilayer Perceptron</li>
               <li>Metodo de treinamento: Interativo</li>
-              <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
+              <li>Dataset utilizado para o treinamento: 90%</li>
             </ul>
           </div>
           <div class="sub-text viagem">
