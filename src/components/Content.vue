@@ -19,9 +19,7 @@
           <div class="sub-text">
             <ul>
               <li>Neurônios da camada oculta: 8</li>
-              <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
               <li>Método utilizado: Multilayer Perceptron</li>
-              <li>Número de neurônios: 8</li>
               <li>Metodo de treinamento: Interativo</li>
               <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
             </ul>
