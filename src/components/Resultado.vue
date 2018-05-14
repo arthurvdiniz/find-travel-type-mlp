@@ -44,7 +44,7 @@ export default {
       return [
         {
           type: 'Colonização',
-          description: 'Reúne as principais características citadas',
+          description: 'Reúne as principais características para vida humana',
           icon: 'mdi-home-variant',
           color: 'light-blue darken-3'
         },
