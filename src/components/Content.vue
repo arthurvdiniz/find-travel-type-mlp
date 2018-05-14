@@ -18,9 +18,10 @@
         <div class="wrapper-sub-text-column">
           <div class="sub-text">
             <ul>
-              <li>Número de neurônios: 8</li>
-              <li>Porcentagem do dataset utispanzado para o treinamento: 90%</li>
               <li>Método utilizado: Multilayer Perceptron</li>
+              <li>Número de neurônios: 8</li>
+              <li>Metodo de treinamento: Interativo</li>
+              <li>Porcentagem do dataset utilizado para o treinamento: 90%</li>
             </ul>
           </div>
           <div class="sub-text viagem">
@@ -112,8 +113,8 @@ export default {
     startNN (inputs) {
       this.ended = false
       this.isLoading = true
-      // TREINAMENTO
-      // Criando o dataset de treinamento e o de teste
+      //TREINAMENTO
+      //Criando o dataset de treinamento e o de teste
       // let nn = new NeuralNetwork(N_INPUTS, N_NEURONIOS, N_OUTPUT, LEARNING_RATE, null, null, null, null)
       // let datasetLengh = dataSet.length
       // let dataTest = [...dataSet]
