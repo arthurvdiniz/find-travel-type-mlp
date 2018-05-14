@@ -14,7 +14,7 @@
         </p>
       </div>
       <div>
-        <h3 class="sub-title">Características do Sistema e Tipo de Viagem</h3>
+        <h3 class="sub-title">Características do Sistema e Tipos de Viagem</h3>
         <div class="wrapper-sub-text-column">
           <div class="sub-text">
             <ul>
